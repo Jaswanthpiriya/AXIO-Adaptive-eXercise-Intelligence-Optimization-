@@ -1,0 +1,11 @@
+{
+  "name": "Remix Remix AXIO — Design System \u0026 Visual Architecture",
+  "description": "Universal Fitness \u0026 Human Performance Platform — Official Design System, Brand Identity, and Component Architecture.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

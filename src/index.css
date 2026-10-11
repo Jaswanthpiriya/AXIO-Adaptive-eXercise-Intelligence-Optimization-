@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  --color-axio-black: #0B0B0D;
+  --color-axio-surface: #111217;
+  --color-axio-surface-raised: #161820;
+  --color-axio-surface-active: #1D202B;
+  --color-axio-blue: #0066FF;
+  --color-steel-gray: #6B7280;
+  --color-light-gray: #E5E7EB;
+  --color-pure-white: #FFFFFF;
+
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root {
+  --axio-black: #0B0B0D;
+  --axio-surface: #111217;
+  --axio-surface-raised: #161820;
+  --axio-white: #FFFFFF;
+  --axio-blue: #0066FF;
+  --axio-steel: #6B7280;
+  --axio-light: #E5E7EB;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--axio-black);
+  color: var(--axio-white);
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbars matching AXIO brand aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C1E26;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0066FF;
+}
+
+/* AXIO Personal Assistant Orb Animations */
+@keyframes axio-orb-breathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 16px rgba(0, 255, 102, 0.35), 0 0 32px rgba(0, 255, 102, 0.15);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 24px rgba(0, 255, 102, 0.55), 0 0 44px rgba(0, 255, 102, 0.25);
+  }
+}
+
+@keyframes axio-orb-halo {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.14);
+    opacity: 0.75;
+  }
+}
+
+.animate-axio-orb {
+  animation: axio-orb-breathe 4s ease-in-out infinite;
+}
+
+.animate-axio-halo {
+  animation: axio-orb-halo 4s ease-in-out infinite;
+}
+
+/* AXIO AI CAM: Center 1+ Rep Completion Visual Effects */
+@keyframes axio-rep-pop {
+  0% {
+    transform: scale(0.35) translateY(24px);
+    opacity: 0;
+    filter: drop-shadow(0 0 0px rgba(0, 255, 102, 0));
+  }
+  18% {
+    transform: scale(1.22) translateY(-6px);
+    opacity: 1;
+    filter: drop-shadow(0 0 32px rgba(0, 255, 102, 1));
+  }
+  32% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    filter: drop-shadow(0 0 24px rgba(0, 255, 102, 0.85));
+  }
+  75% {
+    transform: scale(1.04) translateY(-14px);
+    opacity: 1;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 102, 0.7));
+  }
+  100% {
+    transform: scale(1.15) translateY(-36px);
+    opacity: 0;
+    filter: drop-shadow(0 0 40px rgba(0, 255, 102, 0));
+  }
+}
+
+@keyframes axio-rep-shockwave {
+  0% {
+    transform: scale(0.35);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes axio-rep-burst-particle {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 40px), var(--ty, -40px)) scale(0);
+    opacity: 0;
+  }
+}
+
+.animate-axio-rep-pop {
+  animation: axio-rep-pop 1.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-axio-rep-shockwave {
+  animation: axio-rep-shockwave 1.15s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+}
+
+.animate-axio-rep-particle {
+  animation: axio-rep-burst-particle 1s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-axio-orb,
+  .animate-axio-halo,
+  .animate-axio-rep-pop,
+  .animate-axio-rep-shockwave,
+  .animate-axio-rep-particle {
+    animation: none !important;
+  }
+}
+
